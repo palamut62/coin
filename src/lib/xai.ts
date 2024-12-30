@@ -1,23 +1,44 @@
 import OpenAI from "openai";
+import { getXaiApiKey } from "@/api/settings";
 
-const openai = new OpenAI({
-  apiKey: import.meta.env.XAI_API_KEY,
-  baseURL: "https://api.x.ai/v1",
-  dangerouslyAllowBrowser: true
-});
+let openai: OpenAI;
 
-if (!openai.apiKey) {
-  console.error('API anahtarı bulunamadı! Lütfen .env dosyasında XAI_API_KEY değişkenini tanımlayın.');
-  throw new Error('API anahtarı bulunamadı! Lütfen .env dosyasını kontrol edin.');
+async function initializeOpenAI() {
+  try {
+    const apiKey = await getXaiApiKey();
+    if (!apiKey) {
+      throw new Error('API anahtarı bulunamadı! Lütfen ayarlar sayfasından API anahtarını kaydedin.');
+    }
+
+    openai = new OpenAI({
+      apiKey: apiKey,
+      baseURL: "https://api.x.ai/v1",
+      dangerouslyAllowBrowser: true
+    });
+
+    console.log('XAI Grok API Anahtarı Yüklendi:', apiKey.substring(0, 8) + '...');
+  } catch (error) {
+    console.error('API anahtarı yüklenirken hata:', error);
+    throw error;
+  }
 }
 
-console.log('XAI Grok API Anahtarı Yüklendi:', openai.apiKey.substring(0, 8) + '...');
+// İlk yükleme
+initializeOpenAI();
+
+async function ensureOpenAI() {
+  if (!openai) {
+    await initializeOpenAI();
+  }
+  return openai;
+}
 
 async function makeGrokRequest(prompt: string): Promise<string> {
   try {
     console.log('API isteği gönderiliyor...');
     
-    const completion = await openai.chat.completions.create({
+    const client = await ensureOpenAI();
+    const completion = await client.chat.completions.create({
       model: "grok-2-latest",
       messages: [
         {

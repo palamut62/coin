@@ -5,15 +5,17 @@ import CryptoCard from "@/components/CryptoCard";
 import AssetDetailsDialog from "@/components/AssetDetailsDialog";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, TrendingUp, TrendingDown, RefreshCw, Clock } from "lucide-react";
+import { Search, TrendingUp, TrendingDown, RefreshCw, Clock, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { formatDistanceToNow, subDays } from "date-fns";
 import { tr } from "date-fns/locale";
+import { useNavigate } from "react-router-dom";
 
 type SortOption = "rank" | "priceHighToLow" | "priceLowToHigh" | "change24h" | "volume24h";
 
 const Index = () => {
+  const navigate = useNavigate();
   const [selectedAssetId, setSelectedAssetId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState<SortOption>("rank");
@@ -101,14 +103,24 @@ const Index = () => {
           <h1 className="text-5xl font-black mb-4 md:mb-0">
             Crypto Assets
           </h1>
-          <Button 
-            onClick={handleRefresh} 
-            variant="outline" 
-            className="border-2 border-black hover:bg-black hover:text-white transition-colors"
-          >
-            <RefreshCw className="w-4 h-4 mr-2" />
-            Refresh Data
-          </Button>
+          <div className="flex gap-4">
+            <Button 
+              onClick={() => navigate('/settings')} 
+              variant="outline" 
+              className="border-2 border-black hover:bg-black hover:text-white transition-colors"
+            >
+              <Settings className="w-4 h-4 mr-2" />
+              Settings
+            </Button>
+            <Button 
+              onClick={handleRefresh} 
+              variant="outline" 
+              className="border-2 border-black hover:bg-black hover:text-white transition-colors"
+            >
+              <RefreshCw className="w-4 h-4 mr-2" />
+              Refresh Data
+            </Button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
