@@ -1,5 +1,10 @@
 # Crypto Asset Tracker with XAI Integration
 
+<div align="center">
+  <img src="screenshot.png" alt="Crypto Asset Tracker Dashboard" width="100%" />
+  <p><em>Real-time cryptocurrency tracking dashboard with AI-powered analysis</em></p>
+</div>
+
 A modern cryptocurrency tracking application that provides real-time market data and AI-powered analysis using XAI (X.AI) technology.
 
 ## Features
