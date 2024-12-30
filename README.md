@@ -1,69 +1,102 @@
-# Welcome to your Lovable project
+# Crypto Asset Tracker with XAI Integration
 
-## Project info
+A modern cryptocurrency tracking application that provides real-time market data and AI-powered analysis using XAI (X.AI) technology.
 
-**URL**: https://lovable.dev/projects/0301601b-c6f7-457d-a1f3-7853a5a16865
+## Features
 
-## How can I edit this code?
+- **Real-time Cryptocurrency Data**
+  - Live price updates
+  - Market cap tracking
+  - 24-hour volume monitoring
+  - Price change percentages
 
-There are several ways of editing your application.
+- **Smart Analytics**
+  - AI-powered market analysis using XAI
+  - Technical analysis for each cryptocurrency
+  - Market sentiment analysis
+  - Future trend predictions
 
-**Use Lovable**
+- **Interactive Dashboard**
+  - Top gainers and losers
+  - Recently added cryptocurrencies
+  - Detailed asset information
+  - Search and filter capabilities
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0301601b-c6f7-457d-a1f3-7853a5a16865) and start prompting.
+- **Settings Management**
+  - Secure API key storage using Supabase
+  - Easy configuration interface
+  - API key visibility controls
 
-Changes made via Lovable will be committed automatically to this repo.
+## Technology Stack
 
-**Use your preferred IDE**
+- **Frontend**
+  - React with TypeScript
+  - Vite for build tooling
+  - TailwindCSS for styling
+  - shadcn/ui for UI components
+  - React Query for data fetching
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Backend & Storage**
+  - Supabase for database
+  - XAI (X.AI) for AI analysis
+  - CoinCap API for market data
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Getting Started
 
-Follow these steps:
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd crypto-asset-tracker
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Environment Setup**
+   Create a `.env` file in the root directory with the following variables:
+   ```env
+   VITE_SUPABASE_URL=your_supabase_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+5. **Configure XAI API Key**
+   - Navigate to the Settings page
+   - Add your XAI API key
+   - Save the configuration
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable UI components
+├── pages/         # Page components
+├── lib/           # Utility functions and API clients
+├── api/           # API integration logic
+└── types/         # TypeScript type definitions
 ```
 
-**Edit a file directly in GitHub**
+## Contributing
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-**Use GitHub Codespaces**
+## License
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## What technologies are used for this project?
+## Acknowledgments
 
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/0301601b-c6f7-457d-a1f3-7853a5a16865) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+- [Supabase](https://supabase.com/) for database services
+- [XAI](https://x.ai/) for AI analysis capabilities
+- [CoinCap](https://coincap.io/) for cryptocurrency market data
+- [shadcn/ui](https://ui.shadcn.com/) for beautiful UI components
